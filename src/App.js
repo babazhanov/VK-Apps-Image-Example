@@ -37,23 +37,25 @@ class App extends React.Component {
 	getImage = async () => {
         const image = document.getElementById('url').value;
 
-        console.log({image});
+        console.log(image);
 
         if (image) {
 
             var img = new Image();
             img.onerror = function(e) {
+                console.log('onerror', e)
             }
             img.onload = function() {
-              if (this.src.match(/https:/)) {
-                document.getElementById('safe-img').src = this.src;
-              } else {
-                this.src = this.src.replace('http:', 'https:');
-              }
+                console.log('onload')
+                if (this.src.match(/https:/)) {
+                    document.getElementById('safe-img').src = this.src;
+                } else {
+                    this.src = this.src.replace('http:', 'https:');
+                }
             };
-            img.src = {image};
+            img.src = image;
 
-			//this.setState({ image });
+			this.setState({ image });
 		}
 	};
 
