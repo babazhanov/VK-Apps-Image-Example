@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://babazhanov.github.io/VK-Apps-Image-Example",
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "cross-env": "^5.2.1",
-    "react-hot-loader": "^4.12.21",
-    "react-scripts": "^3.4.1"
+    "cross-env": "^7.0.2",
+    "gh-pages": "^2.0.1"
   },
   "dependencies": {
     "@vkontakte/icons": "^1.27.0",
@@ -22,7 +24,8 @@
     "core-js": "^2.6.11",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.3"
   },
   "browserslist": {
     "production": [

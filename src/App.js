@@ -40,7 +40,20 @@ class App extends React.Component {
         console.log({image});
 
         if (image) {
-			this.setState({ image });
+
+            var img = new Image();
+            img.onerror = function(e) {
+            }
+            img.onload = function() {
+              if (this.src.match(/https:/)) {
+                document.getElementById('safe-img').src = this.src;
+              } else {
+                this.src = this.src.replace('http:', 'https:');
+              }
+            };
+            img.src = {image};
+
+			//this.setState({ image });
 		}
 	};
 
@@ -81,7 +94,7 @@ class App extends React.Component {
 						{
 							!!image &&
 							<Div style={{ textAlign: 'center' }}>
-                                <img src={ image } alt="remote file" />
+                                <img id="safe-img" alt="remote file" />
 							</Div>
 						}
                     </Group>
